@@ -1,16 +1,18 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
 .tooltiptext {
   position: absolute;
   background-color: black;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  margin-top: 5px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   white-space: nowrap;
   z-index: 10;
-}
-
-.tooltip {
-  position: relative; /* Needed for positioning tooltiptext */
-  cursor: pointer;
-  display: inline-block;
 }
