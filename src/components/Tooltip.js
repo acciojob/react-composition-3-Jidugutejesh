@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "./Tooltip.css"; 
 
-const Tooltip = ({ text, tooltipText }) => {
+function Tooltip({ text, children }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -9,10 +10,10 @@ const Tooltip = ({ text, tooltipText }) => {
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      {text}
-      {show && <div>{tooltipText}</div>}
+      {children}
+      {show && <div className="tooltiptext">{text}</div>}
     </div>
   );
-};
+}
 
 export default Tooltip;
