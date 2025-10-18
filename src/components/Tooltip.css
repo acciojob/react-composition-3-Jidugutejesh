@@ -1,6 +1,6 @@
 .tooltip {
   position: relative;
-  display: inline-block; /* ensure wrapper fits content */
+  display: inline-block;
   cursor: pointer;
 }
 
