@@ -11,10 +11,10 @@ const Tooltip = ({ text, children }) => {
   });
 
   return (
-    <>
+    <div className={`tooltip-wrapper ${visible ? "show" : ""}`}>
       {childWithTooltip}
-      {visible && <div className="tooltiptext">{text}</div>}
-    </>
+      <div className="tooltiptext">{text}</div>
+    </div>
   );
 };
 
