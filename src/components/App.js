@@ -4,12 +4,13 @@ import Tooltip from "./Tooltip";
 function App() {
   return (
     <div>
-      <h2 className="tooltip">
-        <Tooltip text="Hover over me"/>
-      </h2>
-      <p className="tooltip">
-        <Tooltip text="Hover over me to see another tooltip" />
-      </p>
+      <Tooltip text="This is a tooltip">
+        <h2>Hover over me</h2>
+      </Tooltip>
+
+      <Tooltip text="Hover over me to see another tooltip">
+        <p>Hover over me to see another tooltip</p>
+      </Tooltip>
     </div>
   );
 }
