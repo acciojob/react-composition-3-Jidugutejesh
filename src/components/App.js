@@ -5,10 +5,10 @@ function App() {
   return (
     <div>
       <h2 className="tooltip">
-        <Tooltip text="Hover over me (h2)" tooltipText="Tooltip for h2" />
+        <Tooltip text="Hover over me"/>
       </h2>
       <p className="tooltip">
-        <Tooltip text="Hover over me (p)" tooltipText="Tooltip for p" />
+        <Tooltip text="Hover over me to see another tooltip" />
       </p>
     </div>
   );
