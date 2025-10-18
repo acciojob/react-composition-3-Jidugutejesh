@@ -1,21 +1,36 @@
-// Tooltip.js
 import React, { useState } from "react";
-import "./Tooltip.css";
-
-function Tooltip({ text, children }) {
+const Tooltip = ({ text, children }) => {
   const [visible, setVisible] = useState(false);
 
-  return React.cloneElement(children, {
-    className: `${children.props.className || ""} tooltip`,
-    onMouseEnter: () => setVisible(true),
-    onMouseLeave: () => setVisible(false),
-    children: (
-      <>
-        {children.props.children}
-        {visible && <div className="tooltiptext">{text}</div>}
-      </>
-    ),
-  });
-}
+  return (
+    <span
+      className="tooltip"
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+      style={{ position: "relative", cursor: "pointer" }}
+    >
+      {children}
+      {visible && (
+        <div
+          className="tooltiptext"
+          style={{
+            position: "absolute",
+            bottom: "100%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            backgroundColor: "red",
+            color: "#fff",
+            padding: "5px 10px",
+            borderRadius: "4px",
+            whiteSpace: "nowrap",
+            zIndex: 10,
+          }}
+        >
+          {text}
+        </div>
+      )}
+    </span>
+  );
+};
 
 export default Tooltip;
