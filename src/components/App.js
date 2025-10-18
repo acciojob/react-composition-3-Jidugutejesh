@@ -1,7 +1,7 @@
 import React from "react";
 import Tooltip from "./Tooltip";
 
-const App = () => {
+function App() {
   return (
     <div>
       <h2 className="tooltip">
@@ -12,6 +12,6 @@ const App = () => {
       </p>
     </div>
   );
-};
+}
 
 export default App;
