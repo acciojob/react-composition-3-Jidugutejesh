@@ -1,14 +1,16 @@
 import React from "react";
-import Tooltip from "./Tooltip";
+import Tooltip from "./components/Tooltip";
 
 function App() {
   return (
-    <div>
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
       <Tooltip text="This is a tooltip">
         <h2>Hover over me</h2>
       </Tooltip>
 
-      <Tooltip text="Hover over me to see another tooltip">
+      <hr />
+
+      <Tooltip text="Another tooltip text">
         <p>Hover over me to see another tooltip</p>
       </Tooltip>
     </div>
