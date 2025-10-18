@@ -1,16 +1,18 @@
 import React from "react";
-import Tooltip from "./Tooltip";
-import "../styles/App.css"; 
+import Tooltip from "./components/Tooltip";
 
-export default function App() {
- return (
+function App() {
+  return (
     <div>
       <h2>
-        <Tooltip text="Tooltip for heading">Hover on heading</Tooltip>
+        <Tooltip text="Tooltip for heading">Hover the heading</Tooltip>
       </h2>
+
       <p>
-        <Tooltip text="Tooltip for paragraph">Hover on paragraph</Tooltip>
+        <Tooltip text="Tooltip for paragraph">Hover the paragraph</Tooltip>
       </p>
     </div>
   );
 }
+
+export default App;
