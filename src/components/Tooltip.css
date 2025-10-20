@@ -1,46 +1,42 @@
 /* Container for the element that triggers the tooltip */
 .tooltip {
   position: relative; 
-  display: inline-block; /* Essential to wrap content and allow proper positioning */
-  cursor: help; /* A helpful visual cue for the user */
+  /* Important: Makes the container only as wide as its children, 
+     allowing the tooltip to be positioned relative to that area. */
+  display: inline-block; 
+  cursor: help; /* Better cursor hint for the user */
 }
 
 /* The actual tooltip text */
 .tooltiptext {
+  /* Styling to match the image: Red background, White/Bold text */
+  background-color: #f44336; /* Bright Red */
+  color: #fff; /* White text */
+  font-weight: bold; 
+  padding: 8px 15px;
+  border-radius: 4px;
+  
   /* Positioning */
   position: absolute;
-  top: 100%; /* Default is below the element */
-  /* To place it above the element: use 'bottom: 100%;' */
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 10;
-  white-space: nowrap; /* Ensures text stays on one line */
-
-  /* Styling to match the image */
-  background-color: #f44336; /* Bright Red */
-  color: white;
-  font-weight: bold; /* Text is bold in the image */
+  white-space: nowrap; /* Prevent text from wrapping */
   
-  /* Dimensions and Appearance */
-  padding: 5px 15px; /* Adjusted padding */
-  border-radius: 4px;
-
-  /* Optional: Triangle/Arrow pointer for better context */
-  /*
-  &::after {
-    content: "";
-    position: absolute;
-    top: 100%; 
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #f44336 transparent transparent transparent;
-  }
-  */
+  /* Placement: Above the hover element */
+  bottom: 100%; 
+  
+  /* Horizontal centering */
+  left: 50%; 
+  transform: translateX(-50%); 
 }
 
-/* For block-level children (like the h2), the inline-block display
-   of .tooltip might need adjustment depending on the layout, but for 
-   this simple usage it's often best. */
+/* Optional: Adds a small triangle/pointer below the text box */
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip box */
+  left: 50%;
+  margin-left: -5px; /* Half the size of the triangle base */
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f44336 transparent transparent transparent;
+}
