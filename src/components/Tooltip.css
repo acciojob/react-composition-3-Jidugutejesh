@@ -1,18 +1,46 @@
+/* Container for the element that triggers the tooltip */
 .tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+  position: relative; 
+  display: inline-block; /* Essential to wrap content and allow proper positioning */
+  cursor: help; /* A helpful visual cue for the user */
 }
 
+/* The actual tooltip text */
 .tooltiptext {
+  /* Positioning */
   position: absolute;
-  background-color: black;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  top: 100%;
+  top: 100%; /* Default is below the element */
+  /* To place it above the element: use 'bottom: 100%;' */
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap;
   z-index: 10;
+  white-space: nowrap; /* Ensures text stays on one line */
+
+  /* Styling to match the image */
+  background-color: #f44336; /* Bright Red */
+  color: white;
+  font-weight: bold; /* Text is bold in the image */
+  
+  /* Dimensions and Appearance */
+  padding: 5px 15px; /* Adjusted padding */
+  border-radius: 4px;
+
+  /* Optional: Triangle/Arrow pointer for better context */
+  /*
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #f44336 transparent transparent transparent;
+  }
+  */
 }
+
+/* For block-level children (like the h2), the inline-block display
+   of .tooltip might need adjustment depending on the layout, but for 
+   this simple usage it's often best. */
