@@ -1,20 +1,20 @@
-/* Container for the element that triggers the tooltip */
+/* Container is now the h2 or p element, so we keep the base positioning */
 .tooltip {
   position: relative; 
-  display: inline-block; /* Essential for containing the tooltip and wrapping the child content */
+  display: inline-block; /* Ensure the element contains its absolute children */
   cursor: help; 
 }
 
 /* The actual tooltip text */
 .tooltiptext {
-  /* Styling to match the image */
-  background-color: #f44336; /* Bright Red */
-  color: #fff; /* White text */
-  font-weight: bold; /* Bold text like in the image */
+  /* Styling (same as before) */
+  background-color: #f44336; 
+  color: #fff; 
+  font-weight: bold;
   padding: 8px 15px;
   border-radius: 4px;
   
-  /* Positioning */
+  /* Positioning (same as before) */
   position: absolute;
   z-index: 10;
   white-space: nowrap; 
