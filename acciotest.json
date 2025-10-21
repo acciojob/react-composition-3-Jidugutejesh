@@ -1,4 +1,59 @@
-{
-    "testRepo": "react-composition-3-solution",
-    "pathToFile": "cypress/integration/tests/test.spec.js"
-}
+describe('Tooltip Component', () => {
+
+    beforeEach(() => {
+        // Ensure you visit the page where your App.js is rendered
+        cy.visit('http://localhost:8080'); 
+    });
+    
+    // This test ensures the element is hidden initially (was previously passing)
+    it('should not show tooltip initially', () => {
+        cy.contains('h2', 'Hover over me')
+          .parent('.tooltip')
+          .find('.tooltiptext')
+          .should('not.exist');
+    });
+
+    // 1) Corrected: should show tooltip on mouse enter
+    it('should show tooltip on mouse enter', () => {
+        // Selector fix: Find the child (h2), go to its parent wrapper (.tooltip),
+        // and find the tooltip text (span.tooltiptext, not div)
+        cy.contains('h2', 'Hover over me')
+          .parent('.tooltip') 
+          .trigger('mouseenter') 
+          .find('.tooltiptext') 
+          .should('be.visible')
+          .and('contain', 'This is a tooltip');
+    });
+
+    // 2) Corrected: should hide tooltip on mouse leave
+    it('should hide tooltip on mouse leave', () => {
+        const selector = cy.contains('p', 'Hover over me to see another tooltip').parent('.tooltip');
+
+        // Show the tooltip
+        selector.trigger('mouseenter')
+          .find('.tooltiptext')
+          .should('be.visible');
+
+        // Hide the tooltip and assert it's removed from DOM
+        selector.trigger('mouseleave')
+          .find('.tooltiptext')
+          .should('not.exist'); 
+    });
+
+    // 3) Corrected: should show different tooltip text for different elements
+    it('should show different tooltip text for different elements', () => {
+        // Test Tooltip 1's content
+        cy.contains('h2', 'Hover over me')
+          .parent('.tooltip')
+          .trigger('mouseenter')
+          .find('.tooltiptext')
+          .should('contain', 'This is a tooltip');
+
+        // Test Tooltip 2's content
+        cy.contains('p', 'Hover over me to see another tooltip')
+          .parent('.tooltip')
+          .trigger('mouseenter')
+          .find('.tooltiptext')
+          .should('contain', 'Hover over me to see another tooltip');
+    });
+});
