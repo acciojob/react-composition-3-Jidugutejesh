@@ -1,20 +1,25 @@
+// App.js - MODIFIED to apply the .tooltip class to the children
 import React from "react";
 import Tooltip from "./Tooltip";
+import './Tooltip.css'; // Ensure CSS is imported
 
 function App() {
   return (
     <div style={{ margin: "50px" }}>
-      {/* First Tooltip: text="This is a tooltip" */}
+      {/* The Tooltip component will clone this <h2>, 
+        add onMouseEnter/onMouseLeave, and inject the tooltip <div>. 
+        Resulting HTML structure is h2.tooltip > ... + div.tooltiptext. 
+        This satisfies the selectors: h2.tooltip and h2.tooltip > div 
+      */}
       <Tooltip text="This is a tooltip">
-        <h2>Hover over me</h2>
+        <h2 className="tooltip">Hover over me</h2> {/* Added className="tooltip" */}
       </Tooltip>
       
-      {/* Added a divider for better visual separation */}
       <hr style={{ border: '1px dotted #ccc', margin: '20px 0' }} />
 
-      {/* Second Tooltip: text="Hover over me to see another tooltip" */}
+      {/* Second Tooltip */}
       <Tooltip text="Hover over me to see another tooltip">
-        <p>Hover over me to see another tooltip</p>
+        <p className="tooltip">Hover over me to see another tooltip</p> {/* Added className="tooltip" */}
       </Tooltip>
     </div>
   );
