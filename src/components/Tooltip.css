@@ -1,25 +1,23 @@
 /* Container for the element that triggers the tooltip */
 .tooltip {
   position: relative; 
-  /* Important: Makes the container only as wide as its children, 
-     allowing the tooltip to be positioned relative to that area. */
-  display: inline-block; 
-  cursor: help; /* Better cursor hint for the user */
+  display: inline-block; /* Essential for containing the tooltip and wrapping the child content */
+  cursor: help; 
 }
 
 /* The actual tooltip text */
 .tooltiptext {
-  /* Styling to match the image: Red background, White/Bold text */
+  /* Styling to match the image */
   background-color: #f44336; /* Bright Red */
   color: #fff; /* White text */
-  font-weight: bold; 
+  font-weight: bold; /* Bold text like in the image */
   padding: 8px 15px;
   border-radius: 4px;
   
   /* Positioning */
   position: absolute;
   z-index: 10;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap; 
   
   /* Placement: Above the hover element */
   bottom: 100%; 
@@ -29,13 +27,13 @@
   transform: translateX(-50%); 
 }
 
-/* Optional: Adds a small triangle/pointer below the text box */
+/* Optional: Arrow/Pointer */
 .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip box */
+  top: 100%; 
   left: 50%;
-  margin-left: -5px; /* Half the size of the triangle base */
+  margin-left: -5px; 
   border-width: 5px;
   border-style: solid;
   border-color: #f44336 transparent transparent transparent;
