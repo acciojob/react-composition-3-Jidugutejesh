@@ -1,6 +1,6 @@
 import React from "react";
 import Tooltip from "./Tooltip";
-import "./App.css"; // THIS MUST EXIST for tests to pass
+import "../styles/App.css"; 
 
 function App() {
   return (
