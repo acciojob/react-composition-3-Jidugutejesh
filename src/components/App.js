@@ -5,17 +5,17 @@ import "../styles/App.css";
 function App() {
   return (
     <div className="app-root">
-      <h2>Tooltip Demo</h2>
+      <h1>Tooltip Test Page</h1>
 
-      <Tooltip text="This is a tooltip">
-        <h3 className="example-child">Hover over me</h3>
+      <Tooltip text="Tooltip for heading">
+        <h2>Hover over this heading</h2>
       </Tooltip>
 
       <br />
       <br />
 
-      <Tooltip text="Another tooltip message!">
-        <p className="example-child">Hover over this text too</p>
+      <Tooltip text="Tooltip for paragraph">
+        <p>Hover over this paragraph</p>
       </Tooltip>
     </div>
   );
