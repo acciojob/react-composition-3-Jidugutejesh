@@ -1,15 +1,12 @@
-/* Tooltip container element */
-.tooltip {
-  /* Makes the container the positioning context for the tooltip text */
-  position: relative; 
-  display: inline-block; 
-}
+/* src/styles/Tooltip.css */
 
-/* Tooltip text element (will only be rendered when isVisible is true) */
+/* .tooltip class is now on the h2 or p, which receives position:relative from App.js inline styles */
+
+/* Tooltip text element */
 .tooltiptext {
   /* Positioning and appearance */
   position: absolute;
-  z-index: 10; /* Ensure it is above other content */
+  z-index: 10; 
   
   width: 150px;
   background-color: #333;
@@ -32,7 +29,7 @@
 .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip box */
+  top: 100%; 
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
