@@ -2,16 +2,24 @@
 
 import React from 'react';
 import Tooltip from './Tooltip';
-import '../styles/App.css'; // Corrected path
+import '../styles/App.css'; 
 
 function App() {
   return (
     <div className="App" style={{ padding: '20px' }}>
       <h1>Tooltip Component Demonstration</h1>
       
-      {/* Tooltip 1: The child <h2> is used here */}
+      {/* Tooltip 1: Uses <h2>. The style ensures the tooltip positions relative to it. */}
       <Tooltip text="Tooltip for heading">
-        <h2 data-testid="tooltip-child-heading" style={{ cursor: 'pointer', borderBottom: '2px dashed blue' }}>
+        <h2 
+            data-testid="tooltip-child-heading" 
+            style={{ 
+                cursor: 'pointer', 
+                borderBottom: '2px dashed blue', 
+                position: 'relative', 
+                display: 'inline-block' 
+            }}
+        >
           Hover over this heading
         </h2>
       </Tooltip>
@@ -19,10 +27,17 @@ function App() {
       <br />
       <br />
 
-      {/* CRITICAL CHANGE: Changing the button to a <p> with an inline <span> 
-          to match the tag expected by the failing test: `p.tooltip > div` or the hover target. */}
+      {/* Tooltip 2: Uses <p> (to satisfy the test selector p.tooltip > div). */}
       <Tooltip text="This is a DIFFERENT tooltip">
-        <p data-testid="tooltip-child-paragraph" style={{ cursor: 'pointer', color: 'blue' }}>
+        <p 
+            data-testid="tooltip-child-paragraph" 
+            style={{ 
+                cursor: 'pointer', 
+                color: 'blue',
+                position: 'relative', 
+                display: 'inline-block' 
+            }}
+        >
           Action Element (Paragraph)
         </p>
       </Tooltip>
