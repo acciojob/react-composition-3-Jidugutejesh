@@ -1,0 +1,41 @@
+/* Tooltip container element */
+.tooltip {
+  /* Makes the container the positioning context for the tooltip text */
+  position: relative; 
+  display: inline-block; 
+}
+
+/* Tooltip text element (will only be rendered when isVisible is true) */
+.tooltiptext {
+  /* Positioning and appearance */
+  position: absolute;
+  z-index: 10; /* Ensure it is above other content */
+  
+  width: 150px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 0.85em;
+  
+  /* Placement (e.g., above the element) */
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  
+  /* Optional: Smooth transition for appearance */
+  transition: opacity 0.3s;
+}
+
+/* Optional: Arrow */
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip box */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
