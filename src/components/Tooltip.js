@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 
-function Tooltip({ text, children }) {
+export default function Tooltip({ text, children }) {
   const [visible, setVisible] = useState(false);
+
   const showTooltip = () => setVisible(true);
   const hideTooltip = () => setVisible(false);
 
   return (
     <div
-      className="tooltip"
+      className="tooltip"               // container with required class name
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
     >
-      {children}
+      {/* children element container (keeps whatever element you pass) */}
+      <div className="tooltip-children">
+        {children}
+      </div>
 
-      {visible && <div className="tooltiptext">{text}</div>}
+      {/* tooltip text only rendered when visible */}
+      {visible && (
+        <div className="tooltiptext" role="tooltip">
+          {text}
+        </div>
+      )}
     </div>
   );
 }
-
-export default Tooltip;
