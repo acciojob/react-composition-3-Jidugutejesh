@@ -1,6 +1,8 @@
+// src/components/App.js
+
 import React from 'react';
 import Tooltip from './Tooltip';
-import './App.css';
+import '../styles/App.css'; // <-- CORRECTED PATH
 
 function App() {
   return (
